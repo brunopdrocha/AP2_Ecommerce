@@ -10,7 +10,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Container(containerName = "Produtos")
+@Container(containerName = "produtosid")
 public class Product {
 
     @Id
