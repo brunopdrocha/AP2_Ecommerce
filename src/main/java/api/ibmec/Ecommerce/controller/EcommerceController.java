@@ -73,4 +73,9 @@ public class EcommerceController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
+    @GetMapping("/test")
+    public String testConnection() {
+        return "Conexão ao Cosmos DB bem-sucedida!";
+    }
+
 }
