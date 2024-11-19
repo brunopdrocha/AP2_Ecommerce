@@ -49,19 +49,7 @@ public class EcommerceController {
                 .orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
-    // Método PUT para atualizar um produto
-    @PutMapping("/atualizar-produto/{id}")
-    public ResponseEntity<Product> updateProduct(@PathVariable String id, @Valid @RequestBody Product updatedProduct) {
-        Optional<Product> existingProduct = productService.findById(id);
 
-        if (existingProduct.isPresent()) {
-            updatedProduct.setProductid(id);  // Garante que o ID permanece o mesmo
-            productService.save(updatedProduct);
-            return new ResponseEntity<>(updatedProduct, HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    }
 
     // Método DELETE para excluir um produto pelo ID
     @DeleteMapping("/remove-produto/{id}")
@@ -73,9 +61,6 @@ public class EcommerceController {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-    @GetMapping("/test")
-    public String testConnection() {
-        return "Conexão ao Cosmos DB bem-sucedida!";
-    }
+
 
 }
