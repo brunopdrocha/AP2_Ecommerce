@@ -1,0 +1,16 @@
+{
+    "name": "ecommerce-bot",
+    "version": "1.0.0",
+    "description": "Chatbot para o projeto AP2_Ecommerce",
+    "main": "index.js",
+    "scripts": {
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "axios": "^1.4.0",
+        "botbuilder": "^4.15.0",
+        "dotenv": "^10.0.0",
+        "ecommerce-bot": "file:",
+        "restify": "^11.1.0"
+    }
+}

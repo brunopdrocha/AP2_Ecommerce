@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "botbuilder-dialogs": "^4.23.1"
+  }
+}
