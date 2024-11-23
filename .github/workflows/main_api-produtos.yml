@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy JAR app to Azure Web App - api-produtos
+name: Build and deploy JAR app to Azure Web App - API-Produtos
 
 on:
   push:
@@ -19,17 +19,17 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v4
         with:
-          java-version: 'java21'
-          distribution: 'microsoft'
+          java-version: '21'
+          distribution: 'temurin'
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn clean install -f ./api/pom.xml
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
           name: java-app
-          path: '${{ github.workspace }}/target/*.jar'
+          path: '${{ github.workspace }}/api/target/*.jar'
 
   deploy:
     runs-on: ubuntu-latest
@@ -49,15 +49,15 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_0E4C60F6E6154FCEB6670CE9E7C7EA3A }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_3FCF497A9CD247228F1F490A2A7A94F6 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_A386ADBB07F9432CB0B00B19FD2DD7CC }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_21343BA3CD82412DA5A6F1A1E36B8B87 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_1393B557E4CC49D48A1ACF5E1B143B7F }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9842959786804980AE9EA9288218BDE3 }}
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v3
         with:
-          app-name: 'api-produtos'
+          app-name: 'API-Produtos'
           slot-name: 'Production'
           package: '*.jar'
           
