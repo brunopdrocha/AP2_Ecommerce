@@ -27,7 +27,7 @@ jobs:
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
-@@ -37,26 +37,26 @@
+
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
