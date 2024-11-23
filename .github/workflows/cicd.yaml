@@ -56,3 +56,6 @@ jobs:
           app-name: 'API-Produtos'
           slot-name: 'production'
           package: ${{ github.workspace }}/target/*.jar
+          
+      - name: Debug login step
+        run: echo ${{ toJSON(steps) }}
